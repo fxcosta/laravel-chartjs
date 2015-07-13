@@ -15,6 +15,25 @@ Fx3costa\Laravelchartjs\ChartjsServiceProvider::class
 
 Até o presente atual momento é necessário instalar e adicionar a seu arquivo de layouts/templates a lib do Chartjs que pode ser encontrada facilmente para download em: http://www.chartjs.org. Essa configuração também será melhorada.
 
+# Modo de uso:
+Exemplo de uso simples, em uma view qualquer que você deseje exibir o gráfico:
+```
+<div class="container-fluid">
+    <canvas id="GraficoBarra" style="width:50%;"></canvas>
+</div>
+
+<?php
+    $dados = array(
+        'Janeiro' => 40,
+        'Fevereiro' => 60,
+        'Março' => 10
+    );
+?>
+
+{!! app()->chartjs->render("GraficoBarra", $dados) !!}
+```
+Onde $dados é um array com as informações, a chave serve como Label e o valor é o valor da informação propriamente dita.
+
 # OBS:
 Essa README, assim como o pacote, está em desenvolvimento mas será atualizada constantemente e os manterei informado assim que
 estiver pronta para produção. Obrigado pela compreensão.
