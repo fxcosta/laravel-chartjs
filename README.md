@@ -24,9 +24,9 @@ Exemplo de uso simples, em uma view qualquer que você deseje exibir o gráfico:
 
 <?php
     $dados = array(
-        'Janeiro' => array(33, 45),
-        'Fevereiro' => array(32, 60),
-        'Março' => array(12, 80)
+        'Janeiro' => array(33),
+        'Fevereiro' => array(32),
+        'Março' => array(12)
     );
 ?>
 
