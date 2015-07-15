@@ -35,7 +35,7 @@ Exemplo de uso simples, em uma view qualquer que você deseje exibir o gráfico:
 
 {!! app()->chartjs->render("GraficoBarra", $dados) !!}
 ```
-Onde $dados é um array com as informações, a chave serve como Label e o valor é o valor da informação propriamente dita.
+Onde $dados é um array com as informações, a chave serve como Label e o valor é o valor da informação propriamente dita. Se você precisar de mais de um dataset - ou seja, dois dados referentes a uma mesma label, como se fosse valor antigo e atual - basta adicionar valores ao array de valor, exemplo: 'Março' => array(12, 25, ..., n)
 
 # OBS:
 Essa README, assim como o pacote, está em desenvolvimento mas será atualizada constantemente e os manterei informado assim que
