@@ -34,6 +34,7 @@ Example of simple use, in a view or whatever you want to display the graphic:
 {!! app()->chartjs->render("GraficoBarra", $data) !!}
 ```
 Where $data is an array of information, the key serves as Label and the value is the value of the information itself.
+If you need more than one dataset - ie two data to the same label as if it were old and current value - just add values to the value of array, for example: 'March' => array (12, 25,. .., n)
 
 # OBS:
 This README as well as the package is in development but will be constantly updated and will keep you informed as soon as
