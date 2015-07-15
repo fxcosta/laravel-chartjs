@@ -1,5 +1,6 @@
 <script src="js/Chart.js"></script>
 
+<!--suppress BadExpressionStatementJS -->
 <script type="text/javascript">
 
     var label = []; // array com labels do gráfico
@@ -8,28 +9,35 @@
     /**
      * populo os meus arrays js com os dados que foram recebidos
      */
-    <?php foreach($dados as $key => $dado){ ?>
-        label.push("<?php echo $key; ?>");
-        infor.push("<?php echo $dado; ?>");
+    <?php foreach($labels as $label){ ?>
+    label.push("<?php echo $label; ?>");
     <?php } ?>
 
+    //console.log(infor[1 ]);
 
     var options = {
-        responsive:true
+        responsive:false
     };
 
     var data = {
         labels: label,
         datasets: [
-            {
-                label: "Dados primários",
-                fillColor: "rgba(220,220,220,0.5)",
-                strokeColor: "rgba(220,220,220,0.8)",
-                highlightFill: "rgba(220,220,220,0.75)",
-                highlightStroke: "rgba(220,220,220,1)",
-                data : infor
-            }
-        ]
+            <?php
+                $i = 0;
+                foreach($dados as $dado){
+                    echo '{';
+                ?>
+            label: "Dados primários",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data : [<?php echo $dado; ?>]
+    <?php
+        $i+1 == $datasets ? print '}' : print '},';
+        $i++; }
+    ?>
+    ]
     };
 
     window.onload = function(){
