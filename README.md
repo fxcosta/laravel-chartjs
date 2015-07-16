@@ -1,4 +1,7 @@
 # laravel-chartjs - Gráficos do Chartjs para Laravel 5.x
+
+[README in English](https://github.com/fxcosta/laravel-chartjs/blob/master/README_en.md)
+
 Esse é um simples pacote que permite a utilização simples e rápida de relatórios e gráficos da biblioteca 
 Javascript [Chart.js](http://www.chartjs.org/) de Nick Downie.
 
@@ -24,15 +27,15 @@ Exemplo de uso simples, em uma view qualquer que você deseje exibir o gráfico:
 
 <?php
     $dados = array(
-        'Janeiro' => 40,
-        'Fevereiro' => 60,
-        'Março' => 10
+        'Janeiro' => array(33),
+        'Fevereiro' => array(32),
+        'Março' => array(12)
     );
 ?>
 
 {!! app()->chartjs->render("GraficoBarra", $dados) !!}
 ```
-Onde $dados é um array com as informações, a chave serve como Label e o valor é o valor da informação propriamente dita.
+Onde $dados é um array com as informações, a chave serve como Label e o valor é o valor da informação propriamente dita. Se você precisar de mais de um dataset - ou seja, dois dados referentes a uma mesma label, como se fosse valor antigo e atual - basta adicionar valores ao array de valor, exemplo: 'Março' => array(12, 25, ..., n)
 
 # OBS:
 Essa README, assim como o pacote, está em desenvolvimento mas será atualizada constantemente e os manterei informado assim que
