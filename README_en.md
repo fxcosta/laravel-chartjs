@@ -13,6 +13,25 @@ And add the Service Provider in your file config/app.php:
 Fx3costa\Laravelchartjs\ChartjsServiceProvider::class
 ```
 
+Finally, publish the package to use a configuration file that allows dynamically choose the colors of the graphics according to the chart type and datasets.
+
+config file:
+```
+<?php
+return [
+    'colours' => [
+        'bar' => [
+            'rgba(220,220,220,0.5)',
+            'rgba(151,187,205,0.8)',
+            'rgba(24, 164, 103, 0.7)',
+        ],
+        'pie' => [
+        ]
+    ]
+];
+```
+Where we have color setting in accordance with the chart type and according to the number of datasets that you will use.
+
 For now, you must install and add to your layouts / templates the Chartjs library that can be easily 
 found for download at: http://www.chartjs.org. This setting will also be improved.
 
