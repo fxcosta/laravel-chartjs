@@ -14,6 +14,9 @@ Fx3costa\Laravelchartjs\ChartjsServiceProvider::class
 ```
 
 Finally, publish the package to use a configuration file that allows dynamically choose the colors of the graphics according to the chart type and datasets.
+```
+php artisan vendor:publish
+```
 
 config file:
 ```
