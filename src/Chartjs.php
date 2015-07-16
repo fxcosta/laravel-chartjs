@@ -11,16 +11,20 @@ namespace Fx3costa\Laravelchartjs;
 
 class Chartjs {
 
-    public function __construct()
-    {
+    protected $colours = array();
 
+    public function __construct(array $colours)
+    {
+        $this->colours = $colours;
     }
+
 
     //TODO: Se houver um dataset algum dado que não tenha sido informado, usar como 0
     public function render($canvas, array $dados)
     {
         $qtdDatasets = 0;
         $dataset = array();
+        $colours = array();
         $labels = array();
 
         foreach($dados as $label => $dado)
@@ -34,11 +38,13 @@ class Chartjs {
         {
             $dataset[$i] = array_column($dados, $i);
             $dataset[$i] = implode(", ", $dataset[$i]);
+            $colours[$i] = $this->colours[$i];
         }
 
         return view('chart::chart')->with(['elemento' => $canvas,
-            'dados' => $dataset,
-            'labels' => $labels,
-            'datasets' => $qtdDatasets]);
+                                            'dataset' => $dataset,
+                                            'labels' => $labels,
+                                            'colours' => $colours,
+                                            'qtdDatasets' => $qtdDatasets]);
     }
 }

@@ -10,7 +10,7 @@
      * populo os meus arrays js com os dados que foram recebidos
      */
     <?php foreach($labels as $label){ ?>
-    label.push("<?php echo $label; ?>");
+        label.push("<?php echo $label; ?>");
     <?php } ?>
 
     //console.log(infor[1 ]);
@@ -24,19 +24,22 @@
         datasets: [
             <?php
                 $i = 0;
-                foreach($dados as $dado){
+                foreach($dataset as $dado){
                     echo '{';
-                ?>
+            ?>
+
             label: "Dados primários",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
+            fillColor: "<?php echo $colours[$i]; ?>",
+            strokeColor: "<?php echo $colours[$i]; ?>",
+            highlightFill: "<?php echo $colours[$i]; ?>",
+            highlightStroke: "<?php echo $colours[$i]; ?>",
             data : [<?php echo $dado; ?>]
-    <?php
-        $i+1 == $datasets ? print '}' : print '},';
-        $i++; }
-    ?>
+
+            <?php
+                $i+1 == $qtdDatasets ? print '}' : print '},';
+                $i++;
+                }
+            ?>
     ]
     };
 
