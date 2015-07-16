@@ -16,6 +16,28 @@ E adicionar o Service Provider no seu arquivo config/app.php:
 Fx3costa\Laravelchartjs\ChartjsServiceProvider::class
 ```
 
+Por último, publique o pacote para utiliar um arquivo de configuração que permite escolher dinâmicamente as cores dos gráficos de acordo com o tipo de gráfico e datasets.
+```
+php artisan vendor:publish
+```
+
+Arquivo de configuração:
+```
+<?php
+return [
+    'colours' => [
+        'bar' => [
+            'rgba(220,220,220,0.5)',
+            'rgba(151,187,205,0.8)',
+            'rgba(24, 164, 103, 0.7)',
+        ],
+        'pie' => [
+        ]
+    ]
+];
+```
+Onde temos a configuração de cor, de acordo com o tipo de gráfico e de acordo com o número de datasets que você use.
+
 Até o presente atual momento é necessário instalar e adicionar a seu arquivo de layouts/templates a lib do Chartjs que pode ser encontrada facilmente para download em: http://www.chartjs.org. Essa configuração também será melhorada.
 
 # Modo de uso:
