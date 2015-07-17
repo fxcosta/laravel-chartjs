@@ -1,32 +1,36 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: fx3costa
- * Date: 13/07/2015
- * Time: 02:08
- */
-
-namespace Fx3costa\Laravelchartjs;
-
+<?php namespace Fx3costa\Laravelchartjs;
 
 class Chartjs {
 
+    /**
+     * @var array
+     */
     protected $colours = array();
 
+    /**
+     * @param array $colours
+     */
     public function __construct(array $colours)
     {
         $this->colours = $colours;
     }
 
 
-    //TODO: Se houver um dataset algum dado que não tenha sido informado, usar como 0
+    /**
+     * Prepare the data that was received to be compatible with the requirements of chartjs
+     *
+     * @param $canvas
+     * @param array $dados
+     * @return $this
+     */
     public function render($canvas, array $dados)
     {
-        $qtdDatasets = 0;
+        $qtdDatasets = 0; // datasets quatity
         $dataset = array();
         $colours = array();
         $labels = array();
 
+        // Datasets quantity
         foreach($dados as $label => $dado)
         {
             count($dado) > $qtdDatasets ? $qtdDatasets = count($dado) : $qtdDatasets+=0;
@@ -34,6 +38,7 @@ class Chartjs {
 
         $labels = array_keys($dados);
 
+        // Especially to group the datasets in the right way considering the index of data array
         for($i = 0; $i < $qtdDatasets; $i++)
         {
             $dataset[$i] = array_column($dados, $i);
@@ -41,10 +46,13 @@ class Chartjs {
             $colours[$i] = $this->colours[$i];
         }
 
-        return view('chart::chart')->with(['elemento' => $canvas,
-                                            'dataset' => $dataset,
-                                            'labels' => $labels,
-                                            'colours' => $colours,
-                                            'qtdDatasets' => $qtdDatasets]);
+        return view('chart::chart')
+            ->with(['element' => $canvas,
+                    'dataset' => $dataset,
+                    'labels' => $labels,
+                    'colours' => $colours,
+                    'qtdDatasets' => $qtdDatasets
+            ]);
+
     }
 }

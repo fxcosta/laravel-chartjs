@@ -3,29 +3,34 @@
 <!--suppress BadExpressionStatementJS -->
 <script type="text/javascript">
 
-    var label = []; // array com labels do gráfico
-    var infor = []; // array com os dados do gráfico
+    var label = []; // graphic label array
+    var infor = []; // graphic data array
 
-    /**
-     * populo os meus arrays js com os dados que foram recebidos
-     */
+
+    // incremeting labels array
     <?php foreach($labels as $label){ ?>
         label.push("<?php echo $label; ?>");
     <?php } ?>
 
-    //console.log(infor[1 ]);
 
     var options = {
         responsive:false
     };
 
+
+    /**
+     * Here i use the default style concatenation between javascript and php by preference, for
+     * future expansion and for me to believe so far it is better to work in this case.
+     * TODO: improve the color scheme
+     */
     var data = {
         labels: label,
         datasets: [
             <?php
+                // responsible for iteration
                 $i = 0;
                 foreach($dataset as $dado){
-                    echo '{';
+                echo '{';
             ?>
 
             label: "Dados primários",
@@ -36,7 +41,7 @@
             data : [<?php echo $dado; ?>]
 
             <?php
-                $i+1 == $qtdDatasets ? print '}' : print '},';
+                ($i+1) == $qtdDatasets ? print '}' : print '},';
                 $i++;
                 }
             ?>
@@ -44,7 +49,7 @@
     };
 
     window.onload = function(){
-        var ctx = document.getElementById("<?php echo $elemento; ?>").getContext("2d");
+        var ctx = document.getElementById("<?php echo $element; ?>").getContext("2d");
         var BarChart = new Chart(ctx).Bar(data, options);
     }
 </script>

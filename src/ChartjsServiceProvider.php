@@ -1,10 +1,14 @@
 <?php namespace Fx3costa\Laravelchartjs;
 
-
 use Illuminate\Support\ServiceProvider;
 
 class ChartjsServiceProvider extends ServiceProvider{
 
+    /**
+     * Array with colours configuration of the chartjs config file
+     *
+     * @var array
+     */
     protected $colours = array();
 
     public function boot()
