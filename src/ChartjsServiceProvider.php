@@ -14,7 +14,8 @@ class ChartjsServiceProvider extends ServiceProvider{
     public function boot()
     {
         $this->publishes([__DIR__.'/config/chartjs.php' => config_path('chartjs.php')]);
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'chart');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'autoload');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'chart-bar');
         $this->colours = config('chartjs.colours');
     }
 
@@ -26,8 +27,8 @@ class ChartjsServiceProvider extends ServiceProvider{
      */
     public function register()
     {
-        $this->app->singleton('chartjs', function() {
-            return new Chartjs($this->colours['bar']);
+        $this->app->bind('chartbar', function() {
+            return new ChartBar($this->colours['bar']);
         });
     }
 }

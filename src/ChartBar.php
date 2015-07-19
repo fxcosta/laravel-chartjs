@@ -1,6 +1,6 @@
 <?php namespace Fx3costa\Laravelchartjs;
 
-class Chartjs {
+class ChartBar {
 
     /**
      * @var array
@@ -46,7 +46,7 @@ class Chartjs {
             $colours[$i] = $this->colours[$i];
         }
 
-        return view('chart::chart')
+        return view('chart-bar::chart-bar')
             ->with(['element' => $canvas,
                     'dataset' => $dataset,
                     'labels' => $labels,
