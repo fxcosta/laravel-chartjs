@@ -32,8 +32,12 @@ return [
             'rgba(24, 164, 103, 0.7)',
         ],
         'pie' => [
+            [
+                'colour' => "#F7464A",
+                'highlight' => "#FF5A5E"
+            ],
         ]
-    ]
+    ],
 ];
 ```
 Where we have color setting in accordance with the chart type and according to the number of datasets that you will use.
@@ -43,6 +47,8 @@ found for download at: http://www.chartjs.org. This setting will also be improve
 
 # Usage:
 Example of simple use, in a view or whatever you want to display the graphic:
+
+1 - Bar Chart:
 ```
 <div class="container-fluid">
     <canvas id="GraficoBarra" style="width:50%;"></canvas>
@@ -56,10 +62,28 @@ Example of simple use, in a view or whatever you want to display the graphic:
     );
 ?>
 
-{!! app()->chartjs->render("GraficoBarra", $data) !!}
+{!! app()->chartbar->render("GraficoBarra", $data) !!}
 ```
 Where $data is an array of information, the key serves as Label and the value is the value of the information itself.
 If you need more than one dataset - ie two data to the same label as if it were old and current value - just add values to the value of array, for example: 'March' => array (12, 25,. .., n)
+
+2 - Pie Chart:
+```
+<div class="container-fluid">
+    <canvas id="GraficoPie" style="width:50%;"></canvas>
+</div>
+
+<?php
+    $data = array(
+        'Ferdinand' => 32,
+        'Felix' => 37,
+        'John' => 12
+    );
+?>
+
+{!! app()->chartpie->render("GraficoPie", $data) !!}
+```
+Where $data is an array of information, the key serves as Label and the value is the value of the information itself. The color and highlight color is random according to what was defined in the configuration file
 
 # OBS:
 This README as well as the package is in development but will be constantly updated and will keep you informed as soon as
