@@ -1,6 +1,6 @@
 <?php namespace Fx3costa\Laravelchartjs;
 
-class ChartBar {
+class ChartPie {
 
     /**
      * @var array
@@ -25,33 +25,28 @@ class ChartBar {
      */
     public function render($canvas, array $dados)
     {
-        $qtdDatasets = 0; // datasets quatity
-        $dataset = array();
-        $colours = array();
-        $labels = array();
+        $qtdData = 0;
+        $iterator = 0;
+        $data = array(); // new data array with multiples options
 
-        // Datasets quantity
+        isset($dados) && count($dados) > 0 ? $qtdData = count($dados) : null;
+
         foreach($dados as $label => $dado)
         {
-            count($dado) > $qtdDatasets ? $qtdDatasets = count($dado) : $qtdDatasets+=0;
+            if(isset($this->colours[$iterator]))
+            {
+                $data[$iterator]['label'] = $label;
+                $data[$iterator]['value'] = $dado;
+                $data[$iterator]['highlight'] = $this->colours[$iterator]['highlight'];
+                $data[$iterator]['colour'] = $this->colours[$iterator]['colour'];
+            }
+            $iterator++;
         }
 
-        $labels = array_keys($dados);
-
-        // Especially to group the datasets in the right way considering the index of data array
-        for($i = 0; $i < $qtdDatasets; $i++)
-        {
-            $dataset[$i] = array_column($dados, $i);
-            $dataset[$i] = implode(", ", $dataset[$i]);
-            $colours[$i] = $this->colours[$i];
-        }
-
-        return view('chart-bar::chart-bar')
+        return view('chart-pie::chart-pie')
             ->with(['element' => $canvas,
-                    'dataset' => $dataset,
-                    'labels' => $labels,
-                    'colours' => $colours,
-                    'qtdDatasets' => $qtdDatasets
+                    'data' => $data,
+                    'qtdData' => $qtdData
             ]);
 
     }

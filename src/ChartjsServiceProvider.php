@@ -16,6 +16,7 @@ class ChartjsServiceProvider extends ServiceProvider{
         $this->publishes([__DIR__.'/config/chartjs.php' => config_path('chartjs.php')]);
         $this->loadViewsFrom(__DIR__.'/resources/views', 'autoload');
         $this->loadViewsFrom(__DIR__.'/resources/views', 'chart-bar');
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'chart-pie');
         $this->colours = config('chartjs.colours');
     }
 
@@ -29,6 +30,10 @@ class ChartjsServiceProvider extends ServiceProvider{
     {
         $this->app->bind('chartbar', function() {
             return new ChartBar($this->colours['bar']);
+        });
+
+        $this->app->bind('chartpie', function() {
+            return new ChartPie($this->colours['pie']);
         });
     }
 }
