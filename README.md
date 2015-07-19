@@ -12,7 +12,7 @@ composer require fx3costa/laravelchartjs
 ```
 
 And add the Service Provider in your file config/app.php:
-```
+```php
 Fx3costa\Laravelchartjs\ChartjsServiceProvider::class
 ```
 
@@ -22,7 +22,7 @@ php artisan vendor:publish
 ```
 
 config file:
-```
+```php
 <?php
 return [
     'colours' => [
@@ -49,7 +49,7 @@ found for download at: http://www.chartjs.org. This setting will also be improve
 Example of simple use, in a view or whatever you want to display the graphic:
 
 1 - Bar Chart:
-```
+```php
 <div class="container-fluid">
     <canvas id="GraficoBarra" style="width:50%;"></canvas>
 </div>
@@ -68,7 +68,7 @@ Where $data is an array of information, the key serves as Label and the value is
 If you need more than one dataset - ie two data to the same label as if it were old and current value - just add values to the value of array, for example: 'March' => array (12, 25,. .., n)
 
 2 - Pie Chart:
-```
+```php
 <div class="container-fluid">
     <canvas id="GraficoPie" style="width:50%;"></canvas>
 </div>
