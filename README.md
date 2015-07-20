@@ -1,4 +1,4 @@
-# laravel-chartjs - Chart.js graphics to Laravel 5.x
+# laravel-chartjs - Chart.js graphs to Laravel 5.x
 
 [README in Portuguese](https://github.com/fxcosta/laravel-chartjs/blob/master/README_pt-BR.md)
 
