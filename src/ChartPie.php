@@ -1,6 +1,9 @@
 <?php namespace Fx3costa\Laravelchartjs;
 
-class ChartPie {
+use Fx3costa\Laravelchartjs\Contracts\Chartjs;
+
+class ChartPie implements Chartjs
+{
 
     /**
      * @var array
@@ -31,15 +34,20 @@ class ChartPie {
 
         isset($dados) && count($dados) > 0 ? $qtdData = count($dados) : null;
 
-        foreach($dados as $label => $dado)
-        {
-            if(isset($this->colours[$iterator]))
-            {
-                $data[$iterator]['label'] = $label;
-                $data[$iterator]['value'] = $dado;
+        foreach($dados as $label => $dado) {
+            $data[$iterator]['label'] = $label;
+            $data[$iterator]['value'] = $dado;
+
+            if(isset($this->colours[$iterator])) {
                 $data[$iterator]['highlight'] = $this->colours[$iterator]['highlight'];
                 $data[$iterator]['colour'] = $this->colours[$iterator]['colour'];
             }
+            else {
+                // if is not set colors, this is default color
+                $data[$iterator]['highlight'] = "#D8D8D8";
+                $data[$iterator]['colour'] = "#D8D8D8";
+            }
+
             $iterator++;
         }
 

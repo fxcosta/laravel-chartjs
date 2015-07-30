@@ -13,7 +13,7 @@ composer require fx3costa/laravelchartjs
 
 And add the Service Provider in your file config/app.php:
 ```php
-Fx3costa\Laravelchartjs\ChartjsServiceProvider::class
+Fx3costa\Laravelchartjs\Providers\ChartjsServiceProvider::class
 ```
 
 Finally, publish the package to use a configuration file that allows dynamically choose the colors of the graphics according to the chart type and datasets.

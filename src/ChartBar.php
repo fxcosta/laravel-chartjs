@@ -1,6 +1,9 @@
 <?php namespace Fx3costa\Laravelchartjs;
 
-class ChartBar {
+use Fx3costa\Laravelchartjs\Contracts\Chartjs;
+
+class ChartBar implements Chartjs
+{
 
     /**
      * @var array
@@ -31,16 +34,14 @@ class ChartBar {
         $labels = array();
 
         // Datasets quantity
-        foreach($dados as $label => $dado)
-        {
+        foreach($dados as $label => $dado) {
             count($dado) > $qtdDatasets ? $qtdDatasets = count($dado) : $qtdDatasets+=0;
         }
 
         $labels = array_keys($dados);
 
         // Especially to group the datasets in the right way considering the index of data array
-        for($i = 0; $i < $qtdDatasets; $i++)
-        {
+        for($i = 0; $i < $qtdDatasets; $i++) {
             $dataset[$i] = array_column($dados, $i);
             $dataset[$i] = implode(", ", $dataset[$i]);
             $colours[$i] = $this->colours[$i];

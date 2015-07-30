@@ -19,6 +19,10 @@ return [
             'rgba(24, 164, 103, 0.7)',
         ],
 
+        /**
+         * If the number of data exceeds the number of colors configured,
+         * the data will use default color definied in ChartPie.php
+         */
         'pie' => [
             [
                 'colour' => "#F7464A",

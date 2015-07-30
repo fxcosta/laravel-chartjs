@@ -55,7 +55,7 @@
                     // Options section
                     // ---------------------------------------------------------------
                     {
-                        responsive:false
+                        responsive:true
                     });
                     // End options section
 
