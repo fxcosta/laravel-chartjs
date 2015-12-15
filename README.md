@@ -46,12 +46,12 @@ For now, you must install and add to your layouts / templates the Chartjs librar
 found for download at: http://www.chartjs.org. This setting will also be improved.
 
 # Usage:
-Example of simple use, in a view or whatever you want to display the graphic:
+Example of simple use, in a view or whatever you want to display the chart:
 
 1 - Bar Chart:
 ```php
 <div class="container-fluid">
-    <canvas id="GraficoBarra" style="width:50%;"></canvas>
+    <canvas id="BarChart" style="width:50%;"></canvas>
 </div>
 
 <?php
@@ -62,7 +62,7 @@ Example of simple use, in a view or whatever you want to display the graphic:
     );
 ?>
 
-{!! app()->chartbar->render("GraficoBarra", $data) !!}
+{!! app()->chartbar->render("BarChart", $data) !!}
 ```
 Where $data is an array of information, the key serves as Label and the value is the value of the information itself.
 If you need more than one dataset - ie two data to the same label as if it were old and current value - just add values to the value of array, for example: 'March' => array (12, 25,. .., n)
@@ -70,7 +70,7 @@ If you need more than one dataset - ie two data to the same label as if it were 
 2 - Pie Chart:
 ```php
 <div class="container-fluid">
-    <canvas id="GraficoPie" style="width:50%;"></canvas>
+    <canvas id="PieChart" style="width:50%;"></canvas>
 </div>
 
 <?php
@@ -81,7 +81,7 @@ If you need more than one dataset - ie two data to the same label as if it were 
     );
 ?>
 
-{!! app()->chartpie->render("GraficoPie", $data) !!}
+{!! app()->chartpie->render("PieChart", $data) !!}
 ```
 Where $data is an array of information, the key serves as Label and the value is the value of the information itself. The color and highlight color is random according to what was defined in the configuration file
 
