@@ -1,8 +1,6 @@
 # laravel-chartjs - Chart.js charts to Laravel 5.x
 
-[README in Portuguese](https://github.com/fxcosta/laravel-chartjs/blob/master/README_pt-BR.md)
-
-This is a simple package that enables to use simple and quick reports and charts 
+This is a simple package that enables to use simple and quick reports and charts
 using the [Chart.js](http://www.chartjs.org/) Javascript library from Nick Downie.
 
 
