@@ -2,13 +2,16 @@
 
 use Fx3costa\Laravelchartjs\Contracts\Chartjs;
 
+/**
+ * Class ChartBar
+ * @package Fx3costa\Laravelchartjs
+ */
 class ChartBar implements Chartjs
 {
-
     /**
      * @var array
      */
-    protected $colours = array();
+    protected $colours = [];
 
     /**
      * @param array $colours
@@ -18,31 +21,30 @@ class ChartBar implements Chartjs
         $this->colours = $colours;
     }
 
-
     /**
      * Prepare the data that was received to be compatible with the requirements of chartjs
      *
      * @param $canvas
-     * @param array $dados
+     * @param array $data
      * @return $this
      */
-    public function render($canvas, array $dados)
+    public function render($canvas, array $data)
     {
-        $qtdDatasets = 0; // datasets quatity
-        $dataset = array();
-        $colours = array();
-        $labels = array();
+        $datasetQnt = 0; // datasets quatity
+        $dataset    = [];
+        $colours    = [];
+        $labels     = [];
 
         // Datasets quantity
-        foreach($dados as $label => $dado) {
-            count($dado) > $qtdDatasets ? $qtdDatasets = count($dado) : $qtdDatasets+=0;
+        foreach($data as $label => $info) {
+            count($info) > $datasetQnt ? $datasetQnt = count($info) : $datasetQnt += 0;
         }
 
-        $labels = array_keys($dados);
+        $labels = array_keys($data);
 
         // Especially to group the datasets in the right way considering the index of data array
-        for($i = 0; $i < $qtdDatasets; $i++) {
-            $dataset[$i] = array_column($dados, $i);
+        for($i = 0; $i < $datasetQnt; $i++) {
+            $dataset[$i] = array_column($data, $i);
             $dataset[$i] = implode(", ", $dataset[$i]);
             $colours[$i] = $this->colours[$i];
         }
@@ -52,7 +54,7 @@ class ChartBar implements Chartjs
                     'dataset' => $dataset,
                     'labels' => $labels,
                     'colours' => $colours,
-                    'qtdDatasets' => $qtdDatasets
+                    'qtdDatasets' => $datasetQnt
             ]);
 
     }

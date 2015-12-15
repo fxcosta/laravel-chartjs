@@ -9,10 +9,9 @@ class ChartjsServiceProvider extends ServiceProvider
 
     /**
      * Array with colours configuration of the chartjs config file
-     *
      * @var array
      */
-    protected $colours = array();
+    protected $colours = [];
 
     public function boot()
     {

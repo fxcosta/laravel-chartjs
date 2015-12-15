@@ -2,13 +2,17 @@
 
 use Fx3costa\Laravelchartjs\Contracts\Chartjs;
 
+/**
+ * Class ChartPie
+ * @package Fx3costa\Laravelchartjs
+ */
 class ChartPie implements Chartjs
 {
 
     /**
      * @var array
      */
-    protected $colours = array();
+    protected $colours = [];
 
     /**
      * @param array $colours
@@ -18,34 +22,31 @@ class ChartPie implements Chartjs
         $this->colours = $colours;
     }
 
-
     /**
      * Prepare the data that was received to be compatible with the requirements of chartjs
-     *
      * @param $canvas
-     * @param array $dados
+     * @param array $data
      * @return $this
      */
-    public function render($canvas, array $dados)
+    public function render($canvas, array $data)
     {
-        $qtdData = 0;
-        $iterator = 0;
-        $data = array(); // new data array with multiples options
+        $dataQtd    = 0;
+        $iterator   = 0;
+        $finalData  = []; // new data array with multiples options
 
-        isset($dados) && count($dados) > 0 ? $qtdData = count($dados) : null;
+        isset($data) && count($data) > 0 ? $dataQtd = count($data) : null;
 
-        foreach($dados as $label => $dado) {
-            $data[$iterator]['label'] = $label;
-            $data[$iterator]['value'] = $dado;
+        foreach($data as $label => $dataInfo) {
+            $finalData[$iterator]['label'] = $label;
+            $finalData[$iterator]['value'] = $dataInfo;
 
             if(isset($this->colours[$iterator])) {
-                $data[$iterator]['highlight'] = $this->colours[$iterator]['highlight'];
-                $data[$iterator]['colour'] = $this->colours[$iterator]['colour'];
-            }
-            else {
+                $finalData[$iterator]['highlight'] = $this->colours[$iterator]['highlight'];
+                $finalData[$iterator]['colour'] = $this->colours[$iterator]['colour'];
+            } else {
                 // if is not set colors, this is default color
-                $data[$iterator]['highlight'] = "#D8D8D8";
-                $data[$iterator]['colour'] = "#D8D8D8";
+                $finalData[$iterator]['highlight'] = "#D8D8D8";
+                $finalData[$iterator]['colour'] = "#D8D8D8";
             }
 
             $iterator++;
@@ -53,8 +54,8 @@ class ChartPie implements Chartjs
 
         return view('chart-pie::chart-pie')
             ->with(['element' => $canvas,
-                    'data' => $data,
-                    'qtdData' => $qtdData
+                    'data' => $finalData,
+                    'qtdData' => $dataQtd
             ]);
 
     }

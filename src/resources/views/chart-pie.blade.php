@@ -3,8 +3,7 @@
 <!--suppress BadExpressionStatementJS -->
 <script type="text/javascript">
 
-
-    addLoadEvent(function(){
+    addLoadEvent(function() {
         var <?php echo $element; ?> = document.getElementById("<?php echo $element; ?>").getContext("2d");
         var PizzaChart = new Chart(<?php echo $element; ?>).Pie(
                 // ---------------------------------------------------------------
@@ -12,21 +11,19 @@
                 // ---------------------------------------------------------------
                 [
                     <?php
-                        // responsible for iteration
-                        $i = 0;
-                        foreach($data as $label => $d){
+                    $i = 0; // responsible for iteration
+                    foreach($data as $label => $d):
                         echo '{';
                     ?>
-
-                    value: <?php echo $d['value']; ?>,
-                    color:"<?php echo $d['colour']; ?>",
-                    highlight: "<?php echo $d['highlight']; ?>",
-                    label: "<?php echo $d['label']; ?>"
+                        value: <?php echo $d['value']; ?>,
+                        color:"<?php echo $d['colour']; ?>",
+                        highlight: "<?php echo $d['highlight']; ?>",
+                        label: "<?php echo $d['label']; ?>"
 
                     <?php
                         ($i+1) == $qtdData ? print '}' : print '},';
                         $i++;
-                    }
+                    endforeach;
                     ?>
                 ],
                 // End data section
