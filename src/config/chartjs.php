@@ -19,6 +19,12 @@ return [
             'rgba(24, 164, 103, 0.7)',
         ],
 
+        'line' => [
+            'rgba(220,220,220,0.5)',
+            'rgba(151,187,205,0.8)',
+            'rgba(24, 164, 103, 0.7)',
+        ],
+
         /**
          * If the number of data exceeds the number of colors configured,
          * the data will use default color definied in ChartPie.php
