@@ -65,7 +65,7 @@ Example of simple use, in a view or whatever you want to display the chart:
 Where $data is an array of information, the key serves as Label and the value is the value of the information itself.
 If you need more than one dataset - ie two data to the same label as if it were old and current value - just add values to the value of array, for example: 'March' => array (12, 25,. .., n)
 
-2 - Pie Chart:
+2 - Pie or Doughnut Chart:
 ```php
 <div class="container-fluid">
     <canvas id="PieChart" style="width:50%;"></canvas>
@@ -79,9 +79,30 @@ If you need more than one dataset - ie two data to the same label as if it were 
     );
 ?>
 
-{!! app()->chartpie->render("PieChart", $data) !!}
+{!! app()->chartpiedoughnut->render("PieChart", $data, ['type' => 'Doughnut']) !!}
+
+{{-- OR --}}
+
+{!! app()->chartpiedoughnut->render("PieChart", $data, ['type' => 'Pie']) !!}
 ```
 Where $data is an array of information, the key serves as Label and the value is the value of the information itself. The color and highlight color is random according to what was defined in the configuration file
+
+3 - Radar Chart:
+```php
+<div class="container-fluid">
+    <canvas id="RadarChart" style="width:50%;"></canvas>
+</div>
+
+<?php
+    $data = array(
+        'Eating' => array(33, 34),
+        'Coding' => array(32, 123),
+        'Sleeping' => array(12, 90)
+    );
+?>
+
+{!! app()->chartbar->render("BarChart", $data) !!}
+```
 
 # OBS:
 This README as well as the package is in development but will be constantly updated and will keep you informed as soon as
