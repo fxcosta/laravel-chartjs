@@ -101,7 +101,7 @@ Where $data is an array of information, the key serves as Label and the value is
     );
 ?>
 
-{!! app()->chartbar->render("BarChart", $data) !!}
+{!! app()->chartradar->render("RadarChart", $data) !!}
 ```
 
 # OBS:
