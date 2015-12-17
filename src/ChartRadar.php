@@ -6,7 +6,7 @@ use Fx3costa\Laravelchartjs\Contracts\Chartjs;
  * Class ChartBar
  * @package Fx3costa\Laravelchartjs
  */
-class ChartBar implements Chartjs
+class ChartRadar implements Chartjs
 {
     /**
      * @var array
@@ -26,7 +26,6 @@ class ChartBar implements Chartjs
      *
      * @param $canvas
      * @param array $data
-     * @param null $options
      * @return $this
      */
     public function render($canvas, array $data, array $options = null)
@@ -50,7 +49,7 @@ class ChartBar implements Chartjs
             $colours[$i] = $this->colours[$i];
         }
 
-        return view('chart-bar::chart-bar')
+        return view('chart-radar::chart-radar')
             ->with(['element' => $canvas,
                     'dataset' => $dataset,
                     'labels' => $labels,

@@ -13,13 +13,19 @@ return [
     */
     'colours' => [
 
+        'line' => [
+            'rgba(220,220,220,0.5)',
+            'rgba(151,187,205,0.8)',
+            'rgba(24, 164, 103, 0.7)',
+        ],
+
         'bar' => [
             'rgba(220,220,220,0.5)',
             'rgba(151,187,205,0.8)',
             'rgba(24, 164, 103, 0.7)',
         ],
 
-        'line' => [
+        'radar' => [
             'rgba(220,220,220,0.5)',
             'rgba(151,187,205,0.8)',
             'rgba(24, 164, 103, 0.7)',
@@ -27,7 +33,7 @@ return [
 
         /**
          * If the number of data exceeds the number of colors configured,
-         * the data will use default color definied in ChartPie.php
+         * the data will use default color definied in ChartPieAndDougnhut.php
          */
         'pie' => [
             [

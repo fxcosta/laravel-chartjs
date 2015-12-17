@@ -12,7 +12,8 @@ interface Chartjs
      *
      * @param $canvas
      * @param array $data
+     * @param $options
      * @return mixed
      */
-    public function render($canvas, array $data);
+    public function render($canvas, array $data, array $options = null);
 }

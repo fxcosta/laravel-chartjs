@@ -5,7 +5,7 @@
 
     addLoadEvent(function() {
         var <?php echo $element; ?> = document.getElementById("<?php echo $element; ?>").getContext("2d");
-        var PizzaChart = new Chart(<?php echo $element; ?>).Pie(
+        var PizzaChart = new Chart(<?php echo $element; ?>).<?php echo $type ?>(
                 // ---------------------------------------------------------------
                 // Data sections
                 // ---------------------------------------------------------------

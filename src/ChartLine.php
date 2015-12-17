@@ -28,7 +28,7 @@ class ChartLine implements Chartjs
      * @param array $data
      * @return $this
      */
-    public function render($canvas, array $data)
+    public function render($canvas, array $data, array $options = null)
     {
         $datasetQnt = 0; // datasets quatity
         $dataset    = [];

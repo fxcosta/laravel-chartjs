@@ -6,7 +6,7 @@ use Fx3costa\Laravelchartjs\Contracts\Chartjs;
  * Class ChartPie
  * @package Fx3costa\Laravelchartjs
  */
-class ChartPie implements Chartjs
+class ChartPieAndDoughnut implements Chartjs
 {
 
     /**
@@ -26,13 +26,17 @@ class ChartPie implements Chartjs
      * Prepare the data that was received to be compatible with the requirements of chartjs
      * @param $canvas
      * @param array $data
+     * @param string $type
      * @return $this
      */
-    public function render($canvas, array $data)
+    public function render($canvas, array $data, array $options = null)
     {
         $dataQtd    = 0;
         $iterator   = 0;
         $finalData  = []; // new data array with multiples options
+
+        // chart type: pie or doughnut
+        isset($options['type']) ? $type = $options['type'] : $type = "Pie";
 
         isset($data) && count($data) > 0 ? $dataQtd = count($data) : null;
 
@@ -52,10 +56,11 @@ class ChartPie implements Chartjs
             $iterator++;
         }
 
-        return view('chart-pie::chart-pie')
+        return view('chart-pie-doughnut::chart-pie-doughnut')
             ->with(['element' => $canvas,
                     'data' => $finalData,
-                    'qtdData' => $dataQtd
+                    'qtdData' => $dataQtd,
+                    'type'  => $type
             ]);
 
     }
