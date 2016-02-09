@@ -26,6 +26,7 @@ class ChartLine implements Chartjs
      *
      * @param $canvas
      * @param array $data
+     * @param array $options
      * @return $this
      */
     public function render($canvas, array $data, array $options = null)
@@ -50,11 +51,11 @@ class ChartLine implements Chartjs
         }
 
         return view('chart-line::chart-line')
-            ->with(['element' => $canvas,
-                    'dataset' => $dataset,
-                    'labels' => $labels,
-                    'colours' => $colours,
-                    'qtdDatasets' => $datasetQnt
+            ->with(['element'       => $canvas,
+                    'dataset'       => $dataset,
+                    'labels'        => $labels,
+                    'colours'       => $colours,
+                    'qtdDatasets'   => $datasetQnt
             ]);
 
     }

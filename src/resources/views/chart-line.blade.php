@@ -11,7 +11,6 @@
         label.push("<?php echo $label; ?>");
     <?php endforeach; ?>
 
-
     /**
      * This function is responsible for loading the window.load and instantiate our chart.
      * The parameters of data and options are passed directly to avoid conflict with the
@@ -37,8 +36,10 @@
                                     label: "Dados primários",
                                     fillColor: "<?php echo $colours[$i]; ?>",
                                     strokeColor: "<?php echo $colours[$i]; ?>",
-                                    highlightFill: "<?php echo $colours[$i]; ?>",
-                                    highlightStroke: "<?php echo $colours[$i]; ?>",
+                                    pointColor: "<?php echo $colours[$i]; ?>",
+                                    pointStrokeColor: "#fff",
+                                    pointHighlightFill: "#fff",
+                                    pointHighlightStroke: "<?php echo $colours[$i]; ?>",
                                     data : [<?php echo $dado; ?>]
 
                                     <?php
@@ -54,6 +55,7 @@
                     // Options section
                     // ---------------------------------------------------------------
                     {
+
                         responsive:true
                     });
                     // End options section

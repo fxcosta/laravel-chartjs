@@ -51,11 +51,11 @@ class ChartBar implements Chartjs
         }
 
         return view('chart-bar::chart-bar')
-            ->with(['element' => $canvas,
-                    'dataset' => $dataset,
-                    'labels' => $labels,
-                    'colours' => $colours,
-                    'qtdDatasets' => $datasetQnt
+            ->with(['element'       => $canvas,
+                    'dataset'       => $dataset,
+                    'labels'        => $labels,
+                    'colours'       => $colours,
+                    'qtdDatasets'   => $datasetQnt
             ]);
 
     }

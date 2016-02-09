@@ -57,10 +57,10 @@ class ChartPieAndDoughnut implements Chartjs
         }
 
         return view('chart-pie-doughnut::chart-pie-doughnut')
-            ->with(['element' => $canvas,
-                    'data' => $finalData,
-                    'qtdData' => $dataQtd,
-                    'type'  => $type
+            ->with(['element'   => $canvas,
+                    'data'      => $finalData,
+                    'qtdData'   => $dataQtd,
+                    'type'      => $type
             ]);
 
     }

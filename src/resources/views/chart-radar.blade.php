@@ -37,8 +37,10 @@
                                     label: "Dados primários",
                                     fillColor: "<?php echo $colours[$i]; ?>",
                                     strokeColor: "<?php echo $colours[$i]; ?>",
-                                    highlightFill: "<?php echo $colours[$i]; ?>",
-                                    highlightStroke: "<?php echo $colours[$i]; ?>",
+                                    pointColor: "<?php echo $colours[$i]; ?>",
+                                    pointStrokeColor: "#fff",
+                                    pointHighlightFill: "#fff",
+                                    pointHighlightStroke: "<?php echo $colours[$i]; ?>",
                                     data : [<?php echo $dado; ?>]
 
                                     <?php

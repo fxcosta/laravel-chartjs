@@ -40,7 +40,7 @@ return [
 ```
 Where we have color setting in accordance with the chart type and according to the number of datasets that you will use.
 
-For now, you must install and add to your layouts / templates the Chartjs library that can be easily 
+For now, you must install and add to your layouts / templates the Chartjs library that can be easily
 found for download at: http://www.chartjs.org. This setting will also be improved.
 
 # Usage:
@@ -102,6 +102,23 @@ Where $data is an array of information, the key serves as Label and the value is
 ?>
 
 {!! app()->chartradar->render("RadarChart", $data) !!}
+```
+
+4 - Line Chart:
+```php
+<div class="container-fluid">
+    <canvas id="LineChart" style="width:50%;"></canvas>
+</div>
+
+<?php
+    $data = array(
+        'Eating' => array(33, 34),
+        'Coding' => array(32, 123),
+        'Sleeping' => array(12, 90)
+    );
+?>
+
+{!! app()->chartline->render("LineChart", $data) !!}
 ```
 
 # OBS:
