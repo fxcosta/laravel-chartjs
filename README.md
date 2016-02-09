@@ -121,6 +121,12 @@ Where $data is an array of information, the key serves as Label and the value is
 {!! app()->chartline->render("LineChart", $data) !!}
 ```
 
+# TODO:
+- [ ] Tests
+- [ ] Polar Area Chart support
+- [ ] Remove framework dependency: Illuminate packages dependencies only
+
+
 # OBS:
 This README as well as the package is in development but will be constantly updated and will keep you informed as soon as
 are ready for production. Thank you for understanding.
