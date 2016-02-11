@@ -34,7 +34,7 @@
                                     echo '{';
                                 ?>
 
-                                    label: "Dados primários",
+                                    label: "<?php echo $legends[$i]; ?>",
                                     fillColor: "<?php echo $colours[$i]; ?>",
                                     strokeColor: "<?php echo $colours[$i]; ?>",
                                     highlightFill: "<?php echo $colours[$i]; ?>",
@@ -56,6 +56,7 @@
                     {
                         responsive:true
                     });
+                    document.getElementById('js-legend').innerHTML = myBar.generateLegend();
                     // End options section
 
     });

@@ -26,7 +26,7 @@ class ChartBar implements Chartjs
      *
      * @param $canvas
      * @param array $data
-     * @param null $options
+     * @param array|null $options
      * @return $this
      */
     public function render($canvas, array $data, array $options = null)
@@ -35,6 +35,7 @@ class ChartBar implements Chartjs
         $dataset    = [];
         $colours    = [];
         $labels     = [];
+        $legends    = [];
 
         // Datasets quantity
         foreach($data as $label => $info) {
@@ -48,12 +49,17 @@ class ChartBar implements Chartjs
             $dataset[$i] = array_column($data, $i);
             $dataset[$i] = implode(", ", $dataset[$i]);
             $colours[$i] = $this->colours[$i];
+
+            if(isset($options['legends'])) {
+                $legends[$i] = $options['legends'][$i];
+            }
         }
 
         return view('chart-bar::chart-bar')
             ->with(['element'       => $canvas,
                     'dataset'       => $dataset,
                     'labels'        => $labels,
+                    'legends'       => $legends,
                     'colours'       => $colours,
                     'qtdDatasets'   => $datasetQnt
             ]);
