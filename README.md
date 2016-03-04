@@ -121,6 +121,31 @@ Where $data is an array of information, the key serves as Label and the value is
 {!! app()->chartline->render("LineChart", $data) !!}
 ```
 
+For legends in chart just use like this:
+
+```php
+<div class="container-fluid">
+    <canvas id="RadarChart" style="width:50%;"></canvas>
+</div>
+<!-- For every chart, use a respective css id selector: bar, radar, pie or line -->
+<div id="js-legend-bar" class="chart-legend"></div>
+<div id="js-legend-pie" class="chart-legend"></div>
+<div id="js-legend-line" class="chart-legend"></div>
+
+<?php
+// options array with legends to show in this chart
+$options['legends'] = ['Marketing', 'IT', 'Stock'];
+
+$data = array(
+        'Jan' => array(33.4, 59, 100),
+        'Feb' => array(32.8, 45, 150),
+        'Mar' => array(12, 38.3, 125)
+);
+
+?>
+{!! app()->chartbar->render("RadarChart", $data, $options) !!}
+```
+
 # TODO:
 - [ ] Tests
 - [ ] Polar Area Chart support
