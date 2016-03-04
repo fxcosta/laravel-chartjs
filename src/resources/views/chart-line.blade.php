@@ -3,20 +3,20 @@
 <!--suppress BadExpressionStatementJS -->
 <script type="text/javascript">
 
-    var label = []; // graphic label array
-    var infor = []; // graphic data array
-
-    // incremeting labels array
-    <?php foreach($labels as $label): ?>
-        label.push("<?php echo $label; ?>");
-    <?php endforeach; ?>
-
     /**
      * This function is responsible for loading the window.load and instantiate our chart.
      * The parameters of data and options are passed directly to avoid conflict with the
      * variable names when using more than one report.
      */
     addLoadEvent(function() {
+        var label = []; // graphic label array
+        var infor = []; // graphic data array
+
+        // incremeting labels array
+        <?php foreach($labels as $label): ?>
+        label.push("<?php echo $label; ?>");
+        <?php endforeach; ?>
+    
         var <?php echo $element; ?> = document.getElementById("<?php echo $element; ?>").getContext("2d");
 
         window.myLine = new Chart(<?php echo $element; ?>).Line(
