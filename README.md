@@ -147,6 +147,7 @@ $data = array(
 ```
 
 # TODO:
+- [ ] Refactoring for a better JS code
 - [ ] Tests
 - [ ] Polar Area Chart support
 - [ ] Remove framework dependency: Illuminate packages dependencies only
