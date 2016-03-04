@@ -33,9 +33,9 @@
                 // Options section
                 // ---------------------------------------------------------------
                 {
-                    responsive:true
-                }
+                    responsive:true,
+                });
                 // End options section
-        );
+                document.getElementById('js-legend-pie').innerHTML = PizzaChart.generateLegend();
     });
 </script>

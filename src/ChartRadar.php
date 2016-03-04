@@ -35,6 +35,7 @@ class ChartRadar implements Chartjs
         $dataset    = [];
         $colours    = [];
         $labels     = [];
+        $legends    = [];
 
         // Datasets quantity
         foreach($data as $label => $info) {
@@ -48,12 +49,17 @@ class ChartRadar implements Chartjs
             $dataset[$i] = array_column($data, $i);
             $dataset[$i] = implode(", ", $dataset[$i]);
             $colours[$i] = $this->colours[$i];
+
+            if(isset($options['legends'])) {
+                $legends[$i] = $options['legends'][$i];
+            }
         }
 
         return view('chart-radar::chart-radar')
             ->with(['element'       => $canvas,
                     'dataset'       => $dataset,
                     'labels'        => $labels,
+                    'legends'       => $legends,
                     'colours'       => $colours,
                     'qtdDatasets'   => $datasetQnt
             ]);

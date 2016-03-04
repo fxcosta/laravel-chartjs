@@ -54,7 +54,7 @@
                     {
                         responsive:true
                     });
-                    document.getElementById('js-legend').innerHTML = myBar.generateLegend();
+                    document.getElementById('js-legend-bar').innerHTML = myBar.generateLegend();
                     // End options section
 
     });

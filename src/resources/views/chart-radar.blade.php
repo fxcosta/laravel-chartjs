@@ -20,7 +20,7 @@
     addLoadEvent(function() {
         var <?php echo $element; ?> = document.getElementById("<?php echo $element; ?>").getContext("2d");
 
-        window.myBar = new Chart(<?php echo $element; ?>).Radar(
+        window.myRadar = new Chart(<?php echo $element; ?>).Radar(
                     // ---------------------------------------------------------------
                     // Data sections
                     // ---------------------------------------------------------------
@@ -34,7 +34,7 @@
                                     echo '{';
                                 ?>
 
-                                    label: "Dados primários",
+                                    label: "<?php echo $legends[$i]; ?>",
                                     fillColor: "<?php echo $colours[$i]; ?>",
                                     strokeColor: "<?php echo $colours[$i]; ?>",
                                     pointColor: "<?php echo $colours[$i]; ?>",
@@ -58,6 +58,7 @@
                     {
                         responsive:true
                     });
+                    document.getElementById('js-legend-radar').innerHTML = myRadar.generateLegend();
                     // End options section
 
     });

@@ -35,6 +35,7 @@ class ChartLine implements Chartjs
         $dataset    = [];
         $colours    = [];
         $labels     = [];
+        $legends    = [];
 
         // Datasets quantity
         foreach($data as $label => $info) {
@@ -48,6 +49,10 @@ class ChartLine implements Chartjs
             $dataset[$i] = array_column($data, $i);
             $dataset[$i] = implode(", ", $dataset[$i]);
             $colours[$i] = $this->colours[$i];
+
+            if(isset($options['legends'])) {
+                $legends[$i] = $options['legends'][$i];
+            }
         }
 
         return view('chart-line::chart-line')
@@ -55,6 +60,7 @@ class ChartLine implements Chartjs
                     'dataset'       => $dataset,
                     'labels'        => $labels,
                     'colours'       => $colours,
+                    'legends'        => $legends,
                     'qtdDatasets'   => $datasetQnt
             ]);
 

@@ -33,7 +33,7 @@
                                     echo '{';
                                 ?>
 
-                                    label: "Dados primários",
+                                    label: "<?php echo $legends[$i]; ?>",
                                     fillColor: "<?php echo $colours[$i]; ?>",
                                     strokeColor: "<?php echo $colours[$i]; ?>",
                                     pointColor: "<?php echo $colours[$i]; ?>",
@@ -58,6 +58,7 @@
 
                         responsive:true
                     });
+                    document.getElementById('js-legend-line').innerHTML = myLine.generateLegend();
                     // End options section
 
     });
