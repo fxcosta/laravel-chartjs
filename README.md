@@ -1,4 +1,5 @@
 # laravel-chartjs - Chart.js charts to Laravel 5.x
+#(Do not use this package in production. A new updated release is in development for production)
 
 This is a simple package that enables to use simple and quick reports and charts
 using the [Chart.js](http://www.chartjs.org/) Javascript library from Nick Downie.
