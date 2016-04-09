@@ -50,9 +50,8 @@ class ChartBar implements Chartjs
             $dataset[$i] = implode(", ", $dataset[$i]);
             $colours[$i] = $this->colours[$i];
 
-            if(isset($options['legends'])) {
-                $legends[$i] = $options['legends'][$i];
-            }
+            $this->verifyLegendChartExist($options['legends']) ?
+                $legends[$i] = $options['legends'][$i] : $legends[$i] = 'My dataset '.($i+1);
         }
 
         return view('chart-bar::chart-bar')
@@ -64,5 +63,18 @@ class ChartBar implements Chartjs
                     'qtdDatasets'   => $datasetQnt
             ]);
 
+    }
+
+    /**
+     * @param $legends
+     * @return bool
+     */
+    private function verifyLegendChartExist($legends)
+    {
+        if(isset($legends)) {
+            return true;
+        }
+
+        return false;
     }
 }
