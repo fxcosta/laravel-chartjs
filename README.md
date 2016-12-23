@@ -1,4 +1,7 @@
+
 # laravel-chartjs - Chart.js v2 wrapper for Laravel 5.x
+
+#(Do not use this package in production. A new updated release is in development for production)
 
 Simple package to facilitate and automate the use of charts in Laravel 5.x
 using the [Chart.js](http://www.chartjs.org/) v2 library from Nick Downie.
