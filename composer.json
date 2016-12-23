@@ -1,7 +1,9 @@
 {
     "name": "fx3costa/laravelchartjs",
-    "description": "Simples package para facilitar e automatizar o uso de graficos no Laravel 5.x usando a lib Chartjs",
-    "keywords": ["chartjs","laravel5","chart","reports","graphics", "fx3costa"],
+    "description": "Simple package to facilitate and automate the use of charts in Laravel 5.x using Chartjs v2 library",
+    "keywords": [
+      "chartjs","laravel5","chart","reports","graphics", "fx3costa"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -10,13 +12,13 @@
         }
     ],
     "require": {
-      "php": ">=5.5.9",
-      "laravel/framework": "5.*"
+      "php": ">=5.6.4",
+      "illuminate/support": "5.1.* || 5.2.* || 5.3.*"
     },
 
     "autoload": {
       "psr-4": {
-        "Fx3costa\\Laravelchartjs\\" : "src/"
+        "Fx3costa\\LaravelChartJs\\" : "src/"
       }
     }
 }
