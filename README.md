@@ -1,8 +1,6 @@
 
 # laravel-chartjs - Chart.js v2 wrapper for Laravel 5.x
 
-#(Do not use this package in production. A new updated release is in development for production)
-
 Simple package to facilitate and automate the use of charts in Laravel 5.x
 using the [Chart.js](http://www.chartjs.org/) v2 library from Nick Downie.
 
@@ -16,16 +14,33 @@ And add the Service Provider in your file config/app.php:
 Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
 ```
 
-Finally, publish the package to use a configuration file that allows dynamically choose the colors of the graphics according to the chart type and datasets.
-```
-php artisan vendor:publish
-```
-
-For now, you must install and add to your layouts / templates the Chartjs library that can be easily
+Finnaly, for now, you must install and add to your layouts / templates the Chartjs library that can be easily
 found for download at: http://www.chartjs.org. This setting will also be improved.
 
 # Usage:
-Example of simple use, in a view or whatever you want to display the chart:
+
+You can request to Service Container the service responsible for building the charts
+and passing through fluent interface the chart settings. 
+
+```php
+$service = app()->chartjs
+    ->name()
+    ->type()
+    ->element()
+    ->labels()
+    ->datasets()
+    ->options();
+```
+
+For now the builder needs the name of the chart, the type of chart that can be anyone that is supported by chartjs, 
+the canvas element that will render the chart and the other custom configurations like labels, datasets and options.
+
+In the dataset interface you can pass any configuration and option to your chart. 
+All options available in chartjs documentation are supported.
+Just write the configuration with php array notations and its work!
+
+
+# Examples
 
 1 - Line Chart / Radar Chart:
 ```php
@@ -78,9 +93,9 @@ return view('example', compact('chartjs'));
 // ExampleController.php
 
 $chartjs = app()->chartjs
-         ->name('areaChartTest')
+         ->name('barChartTest')
          ->type('bar')
-         ->element('areaChartTest')
+         ->element('barChartTest')
          ->labels(['Label x', 'Label y'])
          ->datasets([
              [
@@ -102,7 +117,7 @@ return view('example', compact('chartjs'));
  // example.blade.php
  
 <div style="width:75%;">
-    <canvas id="lineChartTest">
+    <canvas id="barChartTest">
         {!! $chartjs->render() !!}
     </canvas>
 </div>
@@ -114,9 +129,9 @@ return view('example', compact('chartjs'));
 // ExampleController.php
 
 $chartjs = app()->chartjs
-        ->name('areaChartTest')
+        ->name('pieChartTest')
         ->type('pie')
-        ->element('areaChartTest')
+        ->element('pieChartTest')
         ->labels(['Label x', 'Label y'])
         ->datasets([
             [
@@ -133,7 +148,7 @@ return view('example', compact('chartjs'));
  // example.blade.php
  
 <div style="width:75%;">
-    <canvas id="lineChartTest">
+    <canvas id="pieChartTest">
         {!! $chartjs->render() !!}
     </canvas>
 </div>
@@ -141,8 +156,12 @@ return view('example', compact('chartjs'));
 
 
 # OBS:
+
 This README as well as the package is in development but will be constantly updated and will keep you informed as soon as
 are ready for production. Thank you for understanding.
 
-Any questions or suggestions, mail me:
-fx3costa@gmail.com
+Any questions or suggestions preferably open a issue!
+
+# License
+LaravelChartJs is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
