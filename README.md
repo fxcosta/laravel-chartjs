@@ -13,7 +13,7 @@ composer require fx3costa/laravelchartjs
 
 And add the Service Provider in your file config/app.php:
 ```php
-Fx3costa\Laravelchartjs\Providers\ChartjsServiceProvider::class
+Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
 ```
 
 Finally, publish the package to use a configuration file that allows dynamically choose the colors of the graphics according to the chart type and datasets.
@@ -27,7 +27,7 @@ found for download at: http://www.chartjs.org. This setting will also be improve
 # Usage:
 Example of simple use, in a view or whatever you want to display the chart:
 
-1 - Line Chart:
+1 - Line Chart / Radar Chart:
 ```php
 // ExampleController.php
 
@@ -56,6 +56,73 @@ $chartjs = app()->chartjs
                 "pointHoverBackgroundColor" => "#fff",
                 "pointHoverBorderColor" => "rgba(220,220,220,1)",
                 'data' => [12, 33, 44, 44, 55, 23, 40],
+            ]
+        ])
+        ->options([]);
+
+return view('example', compact('chartjs'));
+        
+        
+ // example.blade.php
+ 
+<div style="width:75%;">
+    <canvas id="lineChartTest">
+        {!! $chartjs->render() !!}
+    </canvas>
+</div>
+```
+
+
+2 - Bar Chart:
+```php
+// ExampleController.php
+
+$chartjs = app()->chartjs
+         ->name('areaChartTest')
+         ->type('bar')
+         ->element('areaChartTest')
+         ->labels(['Label x', 'Label y'])
+         ->datasets([
+             [
+                 "label" => "My First dataset",
+                 'backgroundColor' => ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+                 'data' => [69, 59]
+             ],
+             [
+                 "label" => "My First dataset",
+                 'backgroundColor' => ['rgba(255, 99, 132, 0.3)', 'rgba(54, 162, 235, 0.3)'],
+                 'data' => [65, 12]
+             ]
+         ])
+         ->options([]);
+
+return view('example', compact('chartjs'));
+        
+        
+ // example.blade.php
+ 
+<div style="width:75%;">
+    <canvas id="lineChartTest">
+        {!! $chartjs->render() !!}
+    </canvas>
+</div>
+```
+
+
+3 - Pie Chart / Doughnut Chart:
+```php
+// ExampleController.php
+
+$chartjs = app()->chartjs
+        ->name('areaChartTest')
+        ->type('pie')
+        ->element('areaChartTest')
+        ->labels(['Label x', 'Label y'])
+        ->datasets([
+            [
+                'backgroundColor' => ['#FF6384', '#36A2EB'],
+                'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
+                'data' => [69, 59]
             ]
         ])
         ->options([]);
