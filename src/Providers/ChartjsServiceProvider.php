@@ -18,7 +18,6 @@ class ChartjsServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->publishes([__DIR__.'/../config/chartjs.php' => config_path('chartjs.php')]);
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'chart-template');
         $this->colours = config('chartjs.colours');
     }
