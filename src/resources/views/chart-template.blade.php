@@ -7,7 +7,9 @@
                 labels: {!! json_encode($labels) !!},
                 datasets: {!! json_encode($datasets) !!}
             },
-            @if(!empty($options))
+            @if(!empty($optionsRaw))
+                options: {!! $optionsRaw !!}
+            @elseif(!empty($options))
                 options: {!! json_encode($options) !!}
             @endif
         });
