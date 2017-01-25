@@ -4,7 +4,7 @@
  * This file is inspired by Builder from Laravel ChartJS - Brian Faust
  */
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Fx3costa\LaravelChartJs;
 
@@ -25,10 +25,10 @@ class Builder
      */
     private $defaults = [
         'datasets' => [],
-        'element' => null,
-        'labels' => [],
-        'type' => 'line',
-        'options' => [],
+        'element'  => null,
+        'labels'   => [],
+        'type'     => 'line',
+        'options'  => [],
     ];
 
     /**
@@ -50,7 +50,7 @@ class Builder
      */
     public function name($name): self
     {
-        $this->name = $name;
+        $this->name          = $name;
         $this->charts[$name] = $this->defaults;
         return $this;
     }
@@ -113,6 +113,17 @@ class Builder
     }
 
     /**
+     * 
+     * @param string $optionsRaw
+     * @return \self
+     */
+    public function optionsRaw(string $optionsRaw): self
+    {
+        $this->set('optionsRaw', $optionsRaw);
+        return $this;
+    }
+
+    /**
      * @return mixed
      */
     public function render()
@@ -120,11 +131,12 @@ class Builder
         $chart = $this->charts[$this->name];
 
         return view('chart-template::chart-template')
-            ->with('datasets', $chart['datasets'])
-            ->with('element', $chart['element'])
-            ->with('labels', $chart['labels'])
-            ->with('options', isset($chart['options']) ? $chart['options'] : '')
-            ->with('type', $chart['type']);
+                ->with('datasets', $chart['datasets'])
+                ->with('element', $chart['element'])
+                ->with('labels', $chart['labels'])
+                ->with('options', isset($chart['options']) ? $chart['options'] : '')
+                ->with('optionsRaw', isset($chart['optionsRaw']) ? $chart['optionsRaw'] : '')
+                ->with('type', $chart['type']);
     }
 
     /**
