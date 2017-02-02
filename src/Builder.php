@@ -4,8 +4,6 @@
  * This file is inspired by Builder from Laravel ChartJS - Brian Faust
  */
 
-declare(strict_types = 1);
-
 namespace Fx3costa\LaravelChartJs;
 
 class Builder
@@ -48,7 +46,7 @@ class Builder
      *
      * @return $this|Builder
      */
-    public function name($name): self
+    public function name($name)
     {
         $this->name          = $name;
         $this->charts[$name] = $this->defaults;
@@ -60,7 +58,7 @@ class Builder
      *
      * @return Builder
      */
-    public function element($element): self
+    public function element($element)
     {
         return $this->set('element', $element);
     }
@@ -70,7 +68,7 @@ class Builder
      *
      * @return Builder
      */
-    public function labels(array $labels): self
+    public function labels(array $labels)
     {
         return $this->set('labels', $labels);
     }
@@ -80,7 +78,7 @@ class Builder
      *
      * @return Builder
      */
-    public function datasets(array $datasets): self
+    public function datasets(array $datasets)
     {
         return $this->set('datasets', $datasets);
     }
@@ -90,7 +88,7 @@ class Builder
      *
      * @return Builder
      */
-    public function type($type): self
+    public function type($type)
     {
         if (!in_array($type, $this->types)) {
             throw new \InvalidArgumentException('Invalid Chart type.');
@@ -103,7 +101,7 @@ class Builder
      *
      * @return $this|Builder
      */
-    public function options(array $options): self
+    public function options(array $options)
     {
         foreach ($options as $key => $value) {
             $this->set('options.' . $key, $value);
@@ -155,7 +153,7 @@ class Builder
      *
      * @return $this|Builder
      */
-    private function set($key, $value): self
+    private function set($key, $value)
     {
         array_set($this->charts[$this->name], $key, $value);
         return $this;
