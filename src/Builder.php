@@ -115,7 +115,7 @@ class Builder
      * @param string $optionsRaw
      * @return \self
      */
-    public function optionsRaw(string $optionsRaw): self
+    public function optionsRaw(string $optionsRaw)
     {
         $this->set('optionsRaw', $optionsRaw);
         return $this;
