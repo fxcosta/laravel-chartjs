@@ -133,7 +133,7 @@ class Builder
 
         return view('chart-template::chart-template')
                 ->with('datasets', $chart['datasets'])
-                ->with('element', $chart['element'])
+                ->with('element', isset($chart['element']) ? $chart['element'] : $this->name)
                 ->with('labels', $chart['labels'])
                 ->with('options', isset($chart['options']) ? $chart['options'] : '')
                 ->with('optionsRaw', isset($chart['optionsRaw']) ? $chart['optionsRaw'] : '')
