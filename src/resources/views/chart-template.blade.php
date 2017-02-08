@@ -1,3 +1,4 @@
+<canvas id="{!! $element !!}">
 <script>
     (function() {
         let ctx = document.getElementById("{!! $element !!}");
@@ -15,3 +16,4 @@
         });
     })();
 </script>
+</canvas>
