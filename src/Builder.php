@@ -34,6 +34,9 @@ class Builder
      */
     private $types = [
         'bar',
+        'horizontalBar',
+        'bubble',
+        'scatter',
         'doughnut',
         'line',
         'pie',
