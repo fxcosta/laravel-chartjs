@@ -26,7 +26,6 @@ and passing through fluent interface the chart settings.
 $service = app()->chartjs
     ->name()
     ->type()
-    ->element()
     ->labels()
     ->datasets()
     ->options();
@@ -124,7 +123,6 @@ return view('example', compact('chartjs'));
 $chartjs = app()->chartjs
         ->name('pieChartTest')
         ->type('pie')
-        ->element('pieChartTest')
         ->labels(['Label x', 'Label y'])
         ->datasets([
             [
