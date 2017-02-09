@@ -23,7 +23,6 @@ class Builder
      */
     private $defaults = [
         'datasets' => [],
-        'element'  => null,
         'labels'   => [],
         'type'     => 'line',
         'options'  => [],
@@ -34,6 +33,9 @@ class Builder
      */
     private $types = [
         'bar',
+        'horizontalBar',
+        'bubble',
+        'scatter',
         'doughnut',
         'line',
         'pie',
@@ -130,7 +132,7 @@ class Builder
 
         return view('chart-template::chart-template')
                 ->with('datasets', $chart['datasets'])
-                ->with('element', $chart['element'])
+                ->with('element', $this->name)
                 ->with('labels', $chart['labels'])
                 ->with('options', isset($chart['options']) ? $chart['options'] : '')
                 ->with('optionsRaw', isset($chart['optionsRaw']) ? $chart['optionsRaw'] : '')
