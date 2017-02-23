@@ -1,4 +1,4 @@
-<canvas id="{!! $element !!}">
+<canvas id="{!! $element !!}" width="{!! $size['width'] !!}" height="{!! $size['height'] !!}">
 <script>
     (function() {
         let ctx = document.getElementById("{!! $element !!}");
