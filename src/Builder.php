@@ -26,7 +26,7 @@ class Builder
         'labels'   => [],
         'type'     => 'line',
         'options'  => [],
-        'size'     => ['width' => '100%', 'height' => '100%']
+        'size'     => ['width' => null, 'height' => null]
     ];
 
     /**
