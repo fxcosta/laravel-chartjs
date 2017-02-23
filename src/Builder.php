@@ -104,7 +104,7 @@ class Builder
      *
      * @return Builder
      */
-    public function type($size)
+    public function size($size)
     {
         return $this->set('size', $size);
     }
