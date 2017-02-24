@@ -26,12 +26,13 @@ and passing through fluent interface the chart settings.
 $service = app()->chartjs
     ->name()
     ->type()
+    ->size()
     ->labels()
     ->datasets()
     ->options();
 ```
 
-For now the builder needs the name of the chart, the type of chart that can be anything that is supported by chartjs and the other custom configurations like labels, datasets and options.
+For now the builder needs the name of the chart, the type of chart that can be anything that is supported by chartjs and the other custom configurations like labels, datasets, size and options.
 
 In the dataset interface you can pass any configuration and option to your chart. 
 All options available in chartjs documentation are supported.
@@ -47,6 +48,7 @@ Just write the configuration with php array notations and its work!
 $chartjs = app()->chartjs
         ->name('lineChartTest')
         ->type('line')
+        ->size(['width' => 400, 'height' => 200])
         ->labels(['January', 'February', 'March', 'April', 'May', 'June', 'July'])
         ->datasets([
             [
@@ -90,6 +92,7 @@ return view('example', compact('chartjs'));
 $chartjs = app()->chartjs
          ->name('barChartTest')
          ->type('bar')
+         ->size(['width' => 400, 'height' => 200])
          ->labels(['Label x', 'Label y'])
          ->datasets([
              [
@@ -123,6 +126,7 @@ return view('example', compact('chartjs'));
 $chartjs = app()->chartjs
         ->name('pieChartTest')
         ->type('pie')
+        ->size(['width' => 400, 'height' => 200])
         ->labels(['Label x', 'Label y'])
         ->datasets([
             [
