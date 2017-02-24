@@ -26,6 +26,7 @@ class Builder
         'labels'   => [],
         'type'     => 'line',
         'options'  => [],
+        'size'     => ['width' => null, 'height' => null]
     ];
 
     /**
@@ -99,6 +100,16 @@ class Builder
     }
 
     /**
+     * @param array $size
+     *
+     * @return Builder
+     */
+    public function size($size)
+    {
+        return $this->set('size', $size);
+    }
+
+    /**
      * @param array $options
      *
      * @return $this|Builder
@@ -136,7 +147,8 @@ class Builder
                 ->with('labels', $chart['labels'])
                 ->with('options', isset($chart['options']) ? $chart['options'] : '')
                 ->with('optionsRaw', isset($chart['optionsRaw']) ? $chart['optionsRaw'] : '')
-                ->with('type', $chart['type']);
+                ->with('type', $chart['type'])
+                ->with('size', $chart['size']);
     }
 
     /**
