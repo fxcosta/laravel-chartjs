@@ -1,6 +1,7 @@
 <canvas id="{!! $element !!}" width="{!! $size['width'] !!}" height="{!! $size['height'] !!}">
 <script>
     (function() {
+		"use strict";
         let ctx = document.getElementById("{!! $element !!}");
         window.{!! $element !!} = new Chart(ctx, {
             type: '{!! $type !!}',
