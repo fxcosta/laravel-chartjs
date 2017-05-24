@@ -20,7 +20,7 @@ found for download at: http://www.chartjs.org. This setting will also be improve
 # Usage:
 
 You can request to Service Container the service responsible for building the charts
-and passing through fluent interface the chart settings. 
+and passing through fluent interface the chart settings.
 
 ```php
 $service = app()->chartjs
@@ -34,10 +34,45 @@ $service = app()->chartjs
 
 For now the builder needs the name of the chart, the type of chart that can be anything that is supported by chartjs and the other custom configurations like labels, datasets, size and options.
 
-In the dataset interface you can pass any configuration and option to your chart. 
+In the dataset interface you can pass any configuration and option to your chart.
 All options available in chartjs documentation are supported.
 Just write the configuration with php array notations and its work!
 
+# Advanced chartjs options
+
+Since the current version allows it to add simple json string based options, it is not possible to generate options like:
+
+```php
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'time',
+                time: {
+                    displayFormats: {
+                        quarter: 'MMM YYYY'
+                    }
+                }
+            }]
+        }
+    }
+```
+
+Using the method optionsRaw(string) its possible to add a the options in raw format:
+
+```php
+        $chart->optionsRaw = "{
+            legend: {
+                display:false
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display:false
+                    }  
+                }]
+            }
+        }";
+```
 
 # Examples
 
@@ -75,10 +110,10 @@ $chartjs = app()->chartjs
         ->options([]);
 
 return view('example', compact('chartjs'));
-        
-        
+
+
  // example.blade.php
- 
+
 <div style="width:75%;">
     {!! $chartjs->render() !!}
 </div>
@@ -109,10 +144,10 @@ $chartjs = app()->chartjs
          ->options([]);
 
 return view('example', compact('chartjs'));
-        
-        
+
+
  // example.blade.php
- 
+
 <div style="width:75%;">
     {!! $chartjs->render() !!}
 </div>
@@ -138,10 +173,10 @@ $chartjs = app()->chartjs
         ->options([]);
 
 return view('example', compact('chartjs'));
-        
-        
+
+
  // example.blade.php
- 
+
 <div style="width:75%;">
     {!! $chartjs->render() !!}
 </div>
@@ -157,4 +192,3 @@ Any questions or suggestions preferably open a issue!
 
 # License
 LaravelChartJs is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
