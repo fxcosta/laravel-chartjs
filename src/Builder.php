@@ -124,7 +124,7 @@ class Builder
     }
 
     /**
-     * 
+     *
      * @param string $optionsRaw
      * @return \self
      */

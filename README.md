@@ -60,7 +60,7 @@ Since the current version allows it to add simple json string based options, it 
 Using the method optionsRaw(string) its possible to add a the options in raw format:
 
 ```php
-        $chart->optionsRaw = "{
+        $chart->optionsRaw("{
             legend: {
                 display:false
             },
@@ -71,7 +71,7 @@ Using the method optionsRaw(string) its possible to add a the options in raw for
                     }  
                 }]
             }
-        }";
+        }");
 ```
 
 # Examples
