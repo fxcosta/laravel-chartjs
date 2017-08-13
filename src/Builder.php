@@ -125,11 +125,16 @@ class Builder
 
     /**
      *
-     * @param string $optionsRaw
+     * @param string|array $optionsRaw
      * @return \self
      */
-    public function optionsRaw(string $optionsRaw)
+    public function optionsRaw($optionsRaw)
     {
+        if (is_array($optionsRaw)) {
+            $this->set('optionsRaw', json_encode($optionsRaw, true));
+            return $this;
+        }
+
         $this->set('optionsRaw', $optionsRaw);
         return $this;
     }

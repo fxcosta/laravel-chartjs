@@ -59,6 +59,7 @@ Since the current version allows it to add simple json string based options, it 
 
 Using the method optionsRaw(string) its possible to add a the options in raw format:
 
+Passing string format like a json
 ```php
         $chart->optionsRaw("{
             legend: {
@@ -73,6 +74,30 @@ Using the method optionsRaw(string) its possible to add a the options in raw for
             }
         }");
 ```
+
+Or, if your prefer, you can pass a php array format
+
+```php
+$chart->optionsRaw([
+    'legend' => [
+        'display' => true,
+        'labels' => [
+            'fontColor' => '#000'
+        ]
+    ],
+    'scales' => [
+        'xAxes' => [
+            [
+                'stacked' => true,
+                'gridLines' => [
+                    'display' => true
+                ]
+            ]
+        ]
+    ]
+]);
+```
+
 
 # Examples
 
