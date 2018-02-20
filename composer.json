@@ -20,5 +20,13 @@
       "psr-4": {
         "Fx3costa\\LaravelChartJs\\" : "src/"
       }
+    },
+    
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fx3costa\\LaravelChartJs\\Providers\\ChartjsServiceProvider"
+            ]
+        }
     }
 }
