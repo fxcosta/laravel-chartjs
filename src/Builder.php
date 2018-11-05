@@ -156,6 +156,25 @@ class Builder
                 ->with('size', $chart['size']);
     }
 
+        
+    /**
+     * @return mixed
+     */
+    public function ajax()
+    {
+        $chart = $this->charts[$this->name];
+
+        return [
+            'datasets'   => $chart['datasets'],
+            'element'    => $this->name,
+            'labels'     => $chart['labels'],
+            'options'    => isset($chart['options']) ? $chart['options'] : '',
+            'optionsRaw' => isset($chart['optionsRaw']) ? $chart['optionsRaw'] : '',
+            'type'       => $chart['type'],
+            'size'       => $chart['size']
+        ];
+    }
+    
     /**
      * @param $key
      *
