@@ -14,7 +14,7 @@ And add the Service Provider in your file config/app.php:
 Fx3costa\LaravelChartJs\Providers\ChartjsServiceProvider::class
 ```
 
-Finaly, for now, you must install and add to your layouts / templates the Chartjs library that can be easily
+Finally, for now, you must install and add to your layouts / templates the Chartjs library that can be easily
 found for download at: http://www.chartjs.org. This setting will also be improved.
 
 # Usage:
@@ -75,7 +75,7 @@ Passing string format like a json
         }");
 ```
 
-Or, if your prefer, you can pass a php array format
+Or, if you prefer, you can pass a php array format
 
 ```php
 $chart->optionsRaw([
@@ -210,8 +210,8 @@ return view('example', compact('chartjs'));
 
 # OBS:
 
-This README as well as the package is in development but will be constantly updated and will keep you informed as soon as
-are ready for production. Thank you for understanding.
+This README, as well as the package, is in development, but will be constantly updated and I will keep you informed as soon as
+it is ready for production. Thank you for understanding.
 
 Any questions or suggestions preferably open a issue!
 
