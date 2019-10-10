@@ -4,9 +4,9 @@
  * This file is inspired by Builder from Laravel ChartJS - Brian Faust
  */
 
-use Illuminate\Support\Arr;
-
 namespace Fx3costa\LaravelChartJs;
+
+use Illuminate\Support\Arr;
 
 class Builder
 {
