@@ -4,6 +4,8 @@
  * This file is inspired by Builder from Laravel ChartJS - Brian Faust
  */
 
+use Illuminate\Support\Arr;
+
 namespace Fx3costa\LaravelChartJs;
 
 class Builder
@@ -163,7 +165,7 @@ class Builder
      */
     private function get($key)
     {
-        return array_get($this->charts[$this->name], $key);
+        return Arr::get($this->charts[$this->name], $key);
     }
 
     /**
@@ -174,7 +176,8 @@ class Builder
      */
     private function set($key, $value)
     {
-        array_set($this->charts[$this->name], $key, $value);
+        Arr::set($this->charts[$this->name], $key, $value);
+
         return $this;
     }
 }
