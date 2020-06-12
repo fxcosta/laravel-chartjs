@@ -3,7 +3,7 @@
     document.addEventListener("DOMContentLoaded", function(event) {
         (function() {
     		"use strict";
-            let ctx = document.getElementById("{!! $element !!}");
+            var ctx = document.getElementById("{!! $element !!}");
             window.{!! $element !!} = new Chart(ctx, {
                 type: '{!! $type !!}',
                 data: {
