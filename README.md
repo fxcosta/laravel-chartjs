@@ -1,6 +1,9 @@
 
 # laravel-chartjs - Chart.js v2 wrapper for Laravel 5.x
 
+# ⛔️ DEPRECATED
+This repository is now deprecated. Use [@icehouse-ventures](https://github.com/icehouse-ventures/laravel-chartjs) instead for newer updates
+
 *No Longer Maintained*. This lib is basically a bridge to Chartjs so it is very likely that some problem or issue is better resolved in the Chartjs repository itself.
 
 Simple package to facilitate and automate the use of charts in Laravel 5.x
